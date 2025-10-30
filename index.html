@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secure Registration Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Secure User Registration</h1>
+
+    <form id="registerForm" autocomplete="off" novalidate>
+      <div class="field">
+        <label for="fullname">Full Name</label>
+        <input id="fullname" name="fullname" type="text" required minlength="2" placeholder="Jane Doe" />
+        <small class="hint">Enter your full name.</small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com" />
+        <small class="hint">We'll never share your email.</small>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required minlength="8" placeholder="At least 8 characters" aria-describedby="pwHelp" />
+        <meter id="pwStrength" low="2" high="4" max="4" value="0" />
+        <div id="pwText" class="pw-text">Password strength: <span>—</span></div>
+        <small id="pwHelp" class="hint">Use upper+lowercase letters, numbers and symbols.</small>
+      </div>
+
+      <div class="field">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" name="confirmPassword" type="password" required minlength="8" placeholder="Re-enter password" />
+        <small id="confirmHint" class="hint">Must match the password above.</small>
+      </div>
+
+      <div class="field checkbox">
+        <input id="terms" name="terms" type="checkbox" required />
+        <label for="terms">I agree to the <a href="#" title="Terms">terms &amp; privacy</a>.</label>
+      </div>
+
+      <div class="actions">
+        <!-- For demo: we prevent default and show console/log; replace action with backend endpoint if available -->
+        <button type="submit" id="submitBtn">Register</button>
+      </div>
+
+      <div id="message" role="status" aria-live="polite"></div>
+    </form>
+
+    <footer class="note">
+      <strong>Note:</strong> This demo hashes the password client-side for demonstration only.
+      Always perform proper server-side hashing &amp; salting (e.g., bcrypt/argon2) before storage.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
